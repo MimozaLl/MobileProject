@@ -22,12 +22,15 @@ public final class R {
     public static final class id {
         public static final int button=0x7f070001;
         public static final int grid_view=0x7f070000;
-        public static final int menu_settings=0x7f070002;
+        public static final int mainImage=0x7f070002;
+        public static final int menu_settings=0x7f070004;
+        public static final int overlayImage=0x7f070003;
     }
     public static final class layout {
         public static final int activity_grid_view=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_selected_grid=0x7f030002;
+        public static final int customview=0x7f030003;
     }
     public static final class menu {
         public static final int activity_grid_view=0x7f060000;

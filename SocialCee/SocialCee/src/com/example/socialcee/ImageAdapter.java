@@ -1,6 +1,7 @@
 package com.example.socialcee;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,6 +12,8 @@ public class ImageAdapter extends BaseAdapter {
 	
 	/* app connection*/
 	private Context mContext;
+
+	private LayoutInflater mInflater;
 	
 	/* Elements in the grid */
 	
@@ -24,6 +27,7 @@ public class ImageAdapter extends BaseAdapter {
 	 // Constructor
     public ImageAdapter(Context c){
         mContext = c;
+        mInflater=(LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
 	public int getCount() {
@@ -43,12 +47,28 @@ public class ImageAdapter extends BaseAdapter {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
-		    ImageView imageView = new ImageView(mContext);
-	        imageView.setImageResource(mImages[position]);
-	        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-	        //parameter of the image displayed
-	        imageView.setLayoutParams(new GridView.LayoutParams(100, 100));
-	        return imageView;
-	}
+		ImageView overlayImage=null;
+		 View customView;
+		 
+		 if (convertView == null) {  // if it's not recycled, inflate
+			    customView= new View(mContext) ;
+		        customView = (View) mInflater.inflate(R.layout.customview, null);
+		       } else {
+		        customView = (View) convertView;
+		    }
+
+		    // Get the mainImageView from the parent
+		    ImageView mainImage = (ImageView) customView.findViewById(R.id.mainImage);
+		    mainImage.setImageResource(mImages[position]);
+		  
+		    overlayImage = (ImageView) customView.findViewById(R.id.overlayImage);
+		    overlayImage.setImageResource(R.drawable.ic_launcher); 
+		   
+		    if (position==0){
+		   overlayImage.setVisibility(View.VISIBLE);
+		    }
+		    
+		    return customView;
+		}
 
 }
