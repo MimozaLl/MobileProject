@@ -6,9 +6,9 @@
   <ImageView 
       android:layout_height="fill_parent"
       android:layout_width="fill_parent"
-      android:id="@+id/mainImage"/> 
-      
-   <ImageView
+      android:id="@+id/mainImage"
+     /> 
+  <ImageView
        android:layout_height="fill_parent" 
        android:layout_width="fill_parent" 
        android:id="@+id/overlayImage"

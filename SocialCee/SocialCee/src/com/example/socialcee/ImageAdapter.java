@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 	
+	public int nrPosts=4;
 	/* app connection*/
 	private Context mContext;
 
@@ -60,9 +62,25 @@ public class ImageAdapter extends BaseAdapter {
 		    // Get the mainImageView from the parent
 		    ImageView mainImage = (ImageView) customView.findViewById(R.id.mainImage);
 		    mainImage.setImageResource(mImages[position]);
-		  
+		    
+		    
 		    overlayImage = (ImageView) customView.findViewById(R.id.overlayImage);
-		    overlayImage.setImageResource(R.drawable.ic_launcher); 
+		   
+		switch (nrPosts){
+		    case 0:
+		    	break;
+		    case 1:
+		    	 overlayImage.setImageResource(R.drawable.one);  
+		    	 break;
+		    case 2:
+		    	 overlayImage.setImageResource(R.drawable.two); 
+		    	 break;
+		    case 3:
+		    	 overlayImage.setImageResource(R.drawable.three); 
+		    	 break;
+		    default:
+		    	overlayImage.setImageResource(R.drawable.plus);
+		    }
 		   
 		    if (position==0){
 		   overlayImage.setVisibility(View.VISIBLE);
