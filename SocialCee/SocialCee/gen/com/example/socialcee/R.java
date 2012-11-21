@@ -12,23 +12,29 @@ public final class R {
     }
     public static final class drawable {
         public static final int accounts=0x7f020000;
-        public static final int comment=0x7f020001;
-        public static final int group=0x7f020002;
-        public static final int ic_action_search=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int one=0x7f020005;
-        public static final int plus=0x7f020006;
-        public static final int posts=0x7f020007;
-        public static final int three=0x7f020008;
-        public static final int two=0x7f020009;
-        public static final int users=0x7f02000a;
+        public static final int arrow=0x7f020001;
+        public static final int comment=0x7f020002;
+        public static final int group=0x7f020003;
+        public static final int ic_action_search=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int internet_connection=0x7f020006;
+        public static final int one=0x7f020007;
+        public static final int plus=0x7f020008;
+        public static final int posts=0x7f020009;
+        public static final int three=0x7f02000a;
+        public static final int two=0x7f02000b;
+        public static final int users=0x7f02000c;
     }
     public static final class id {
         public static final int button=0x7f070001;
+        public static final int content=0x7f070005;
         public static final int grid_view=0x7f070000;
-        public static final int mainImage=0x7f070002;
-        public static final int menu_settings=0x7f070004;
-        public static final int overlayImage=0x7f070003;
+        public static final int header=0x7f070002;
+        public static final int mainImage=0x7f070006;
+        public static final int maincontent=0x7f070003;
+        public static final int menu_settings=0x7f070008;
+        public static final int overlayImage=0x7f070007;
+        public static final int scrollView1=0x7f070004;
     }
     public static final class layout {
         public static final int activity_accounts=0x7f030000;
