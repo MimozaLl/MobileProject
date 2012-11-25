@@ -15,12 +15,12 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class Post extends Activity {
+public class Posts extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.activity_posts);
         LinearLayout content = new LinearLayout(this);
         content = (LinearLayout) findViewById(R.id.content); 
         LinearLayout ll = CreateBlock(1);

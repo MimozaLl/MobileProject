@@ -2,5 +2,6 @@
 <lint>
     <issue id="NewApi">
         <ignore path="src\com\example\socialcee\Post.java" />
+        <ignore path="src\com\example\socialcee\Posts.java" />
     </issue>
 </lint>

@@ -10,5 +10,6 @@
     <string name="title_activity_accounts">Accounts</string>
     <string name="title_activity_users">Users</string>
     <string name="title_activity_new_post">NewPost</string>
+    <string name="title_activity_posts">Posts</string>
 
 </resources>

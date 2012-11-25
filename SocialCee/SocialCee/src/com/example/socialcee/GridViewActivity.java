@@ -42,7 +42,7 @@ public class GridViewActivity extends Activity {
     		switch (position)
     		{
     		case 0:
-    			intent = new Intent(getApplicationContext(), Post.class);
+    			intent = new Intent(getApplicationContext(), Posts.class);
     			break;
     		case 1:
     		    intent = new Intent(getApplicationContext(), Users.class);
