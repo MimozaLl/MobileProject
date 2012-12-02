@@ -64,7 +64,7 @@ public class Posts extends Activity {
     	ImageView iv = new ImageView(this);
     	iv.setImageDrawable(getResources().getDrawable(id));
     	iv.setLayoutParams(new LinearLayout.LayoutParams(width, height));
-    	iv.setX(x);
+    	//iv.setX(x);
     	
     	return iv;
     }
