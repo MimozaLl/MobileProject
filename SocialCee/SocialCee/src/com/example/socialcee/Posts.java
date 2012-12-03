@@ -40,7 +40,7 @@ public class Posts extends Activity {
     	layoutParams.setMargins(0, 20, 0, 0);
     	ll.setPadding(40, 50, 40, 0);
     	ll.setId(id+100);
-    	ll.addView(AddHeaderBlock());
+    	ll.addView(AddHeaderBlock()); 
     	ll.addView(AddLine(), new ViewGroup.LayoutParams( ViewGroup.LayoutParams.FILL_PARENT, 2));
     	ll.addView(AddText("The Post!!.....Hello", 20));
     	ll.addView(AddCommentBlock(id, 3),layoutParams);
