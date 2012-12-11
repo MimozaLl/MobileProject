@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 	
-	public int nrPosts=4;
+	public int nrPosts=2;
 	/* app connection*/
 	private Context mContext;
 
