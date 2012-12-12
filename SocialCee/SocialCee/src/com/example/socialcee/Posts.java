@@ -30,7 +30,10 @@ import android.widget.TextView;
 public class Posts extends Activity {
 
 	//JSONObject for Notification(EventSubscription)
-	JSONObject json = new JSONObject();
+	public JSONObject json = new JSONObject();
+	public String url = "https://api.socialcee.com/services/CommentHandler.ashx";
+	public JSONObject postjson = new JSONObject();
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,6 +184,7 @@ public class Posts extends Activity {
     	if (!text.isEmpty())
     	{
     		//COMMENT A POST
+    		postjson = BuildCommentJson(text);
     		comments.addView(AddComment(text, "Maks Norway"));
     		et.setText("");
     	}
@@ -191,6 +195,43 @@ public class Posts extends Activity {
                 EditComments(b.getId());
             }
         };
+    }
+    public JSONObject BuildCommentJson(String message)
+    {
+    	JSONObject object = new JSONObject();
+        JSONObject from = new JSONObject(); {
+            try {
+            from.put("Id", "173526106122353");
+            from.put("Name", "Maks Norway");
+            from.put("Image", "http://facebook.com/profile.php?id=173526106122353");
+
+            }catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+            }
+
+            //Attcahment 
+            JSONObject attach = new JSONObject();{
+            try {
+            attach.put("Type", 1);
+            } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            }
+            }	
+            //New Post
+
+            try {
+            object.put("PostId", 180814);
+            object.put("Message", message);
+            object.put("From", from);
+            object.put("TimeCreated", null);
+            }catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+            }
+        }
+        return object;
     }
     public JSONObject getNotification()
     {
