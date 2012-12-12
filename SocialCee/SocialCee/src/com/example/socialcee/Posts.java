@@ -1,9 +1,18 @@
 package com.example.socialcee;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
@@ -28,20 +37,36 @@ public class Posts extends Activity {
         setContentView(R.layout.activity_posts);
         LinearLayout content = new LinearLayout(this);
         content = (LinearLayout) findViewById(R.id.content); 
-        
-        json = getNotification();
         String Message = "";
+        int ncomments = 0;
+        //ARRAY for storing all comments fetched from JSON
+        String [] comments = new String[99];
+        String [] images = new String[99];
+        String [] names = new String[99];
+        comments[0] = "Welcome to Maks Norway";
+        images[0] = "http://graph.facebook.com/1126961968/picture&type=square";
+        names[0] = "Nuhi Besimi";
+        comments[1] = "It is a pleasure :D";
+        images[1] = "http://graph.facebook.com/100000359694707/picture&type=square";
+        names[1] = "Arlinda Rushiti";
+        json = getNotification();
 		try {
-			Message = json.getString(Message);
+			Message = json.getString("Message");
+			ncomments = json.getJSONArray("Comments").length();
+			for(int i = 0; i < json.getJSONArray("Comments").length(); i++)
+			{
+				comments[i] = json.getJSONArray("Comments").getJSONArray(i).getString(1);
+			}
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        LinearLayout ll = CreateBlock(1, Message);
+        LinearLayout ll = CreateBlock(1, Message, ncomments, comments, names, images);
         content.addView(ll);
  
     }
-    public LinearLayout CreateBlock(int id, String PostMessage)
+    public LinearLayout CreateBlock(int id, String PostMessage, int ncomments, String[] comments, String [] names, String [] images)
     {
     	LinearLayout ll = new LinearLayout(this);
     	ll.setOrientation(LinearLayout.VERTICAL);
@@ -54,8 +79,8 @@ public class Posts extends Activity {
     	ll.setId(id+100);
     	ll.addView(AddHeaderBlock()); 
     	ll.addView(AddLine(), new ViewGroup.LayoutParams( ViewGroup.LayoutParams.FILL_PARENT, 2));
-    	ll.addView(AddText(PostMessage, 20));
-    	ll.addView(AddCommentBlock(id, 3),layoutParams);
+    	ll.addView(AddText(PostMessage, 20,0,0));
+    	ll.addView(AddCommentBlock(id, ncomments, comments, names),layoutParams);
     	ll.addView(AddEditText(id));
     	ll.addView(AddButton(id));
     	
@@ -88,15 +113,16 @@ public class Posts extends Activity {
         
         return ruler;
     }
-    public TextView AddText(String txt, int size)
+    public TextView AddText(String txt, int size, int left, int top)
     {
     	TextView t = new TextView(this);
     	t.setText(txt);
     	t.setTextSize(TypedValue.COMPLEX_UNIT_SP,size);
+    	t.setPadding(left, top, 0, 0);
     	
     	return t;
     }
-    public LinearLayout AddCommentBlock(int id, int nc)
+    public LinearLayout AddCommentBlock(int id, int nc, String [] commentsi, String [] names)
     {
     	int i;
     	LinearLayout comments = new LinearLayout(this);
@@ -105,17 +131,23 @@ public class Posts extends Activity {
     	
     	comments.setId(id);
     	comments.setTag(id);
-    	for(i=1; i<=nc; i++)
+    	for(i=0; i<nc; i++)
     	{
-    		comments.addView(AddComment("Comment1"));
+    		comments.addView(AddComment(commentsi[i], names[i]));
     	}
     	
     	return comments;
     }
-    public RelativeLayout AddComment(String text)
+    public RelativeLayout AddComment(String commenti, String from)
     {
     	RelativeLayout comment = new RelativeLayout(this);
-    	comment.addView(AddText(text,15));
+    	ImageView iv = new ImageView(this);
+    	//iv.setImageBitmap(DownloadImage("http://graph.facebook.com/1126961968/picture&type=square"));
+    	//iv.setLayoutParams(new LinearLayout.LayoutParams(70, 70));
+    	//comment.addView(iv);
+    	comment.addView(AddImage(R.drawable.internet_connection, 70, 70, 0));
+    	comment.addView(AddText(from,15,80,0));
+    	comment.addView(AddText(commenti,15,80,30));
     	
     	return comment;
     }
@@ -146,8 +178,12 @@ public class Posts extends Activity {
     	String text;
 
     	text = et.getText().toString();
-    	comments.addView(AddComment(text));
-    	et.setText("");
+    	if (!text.isEmpty())
+    	{
+    		//COMMENT A POST
+    		comments.addView(AddComment(text, "Maks Norway"));
+    		et.setText("");
+    	}
     }
     View.OnClickListener getOnClickDoSomething(final Button b)  {
         return new View.OnClickListener() {
@@ -160,6 +196,10 @@ public class Posts extends Activity {
     {
     	JSONObject data = new JSONObject();
     	JSONObject from = new JSONObject();
+    	JSONObject from2 = new JSONObject();
+    	JSONArray Comments = new JSONArray();
+    	JSONObject comment = new JSONObject();
+    	JSONObject comment2 = new JSONObject();
     	
     	try {
 			from.put("Id", "1126961968");
@@ -169,10 +209,48 @@ public class Posts extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	try {
+			from.put("Id", "100000359694707");
+			from.put("Name", "Arlinda Rushiti");
+			from.put("Image", "http://graph.facebook.com/100000359694707/picture&type=square");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	try {
+			comment.put("PostId", 180814);
+			comment.put("Message", "Welcome to Maks Norway");
+			comment.put("From", from);
+			comment.put("Id", 556157);
+		} catch (JSONException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+    	try {
+			comment2.put("PostId", 180814);
+			comment2.put("Message", "It is a pleasure :D");
+			comment2.put("From", from2);
+			comment2.put("Id", 556164);
+		} catch (JSONException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+    	
+    	
+    	try {
+			Comments.put(0, comment);
+			Comments.put(1, comment2);
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	
+    	try {
+    		data.put("From", from);
 			data.put("Message", "Mobile System Programming - Project");
 			data.put("Type", 1);
+			data.put("Comments", Comments);
 			data.put("Id", 180814);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -182,4 +260,48 @@ public class Posts extends Activity {
     	
     	return data;
     }
+    public Bitmap DownloadImage(String URL)
+    {        
+        Bitmap bitmap = null;
+        InputStream in = null;        
+        try {
+            in = OpenHttpConnection(URL);
+            bitmap = BitmapFactory.decodeStream(in);
+            in.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        return bitmap;                
+    }
+    private InputStream OpenHttpConnection(String urlString) 
+    	    throws IOException
+    	    {
+    	        int response = -1;
+    	        int http_status;
+    	               
+    	        URL url = new URL(urlString); 
+    	        URLConnection conn = url.openConnection();
+    	        
+    	        InputStream in= null;
+    	                 
+    	        if (!(conn instanceof HttpURLConnection))                     
+    	            throw new IOException("Not an HTTP connection");
+    	        
+    	   //     try{
+    	            HttpURLConnection httpConn = (HttpURLConnection) conn;
+
+    	             in = conn.getInputStream();  
+    	                http_status = httpConn.getResponseCode();
+
+    	                // better check it first
+    	                if (http_status / 100 != 2) {
+    	                  // redirects, server errors, lions and tigers and bears! Oh my!
+    	                }
+    	     //   }
+    	    //    catch (Exception ex)
+    	     //   {
+    	       //     throw new IOException("Error connecting");            
+    	       // }
+    	        return in;     
+    	    }
 }
