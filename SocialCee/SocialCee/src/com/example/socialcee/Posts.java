@@ -1,5 +1,8 @@
 package com.example.socialcee;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,19 +20,28 @@ import android.widget.TextView;
 
 public class Posts extends Activity {
 
+	//JSONObject for Notification(EventSubscription)
+	JSONObject json = new JSONObject();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
         LinearLayout content = new LinearLayout(this);
         content = (LinearLayout) findViewById(R.id.content); 
-        LinearLayout ll = CreateBlock(1);
-        content.addView(ll);
-        ll = CreateBlock(2);
+        
+        json = getNotification();
+        String Message = "";
+		try {
+			Message = json.getString(Message);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        LinearLayout ll = CreateBlock(1, Message);
         content.addView(ll);
  
     }
-    public LinearLayout CreateBlock(int id)
+    public LinearLayout CreateBlock(int id, String PostMessage)
     {
     	LinearLayout ll = new LinearLayout(this);
     	ll.setOrientation(LinearLayout.VERTICAL);
@@ -42,7 +54,7 @@ public class Posts extends Activity {
     	ll.setId(id+100);
     	ll.addView(AddHeaderBlock()); 
     	ll.addView(AddLine(), new ViewGroup.LayoutParams( ViewGroup.LayoutParams.FILL_PARENT, 2));
-    	ll.addView(AddText("The Post!!.....Hello", 20));
+    	ll.addView(AddText(PostMessage, 20));
     	ll.addView(AddCommentBlock(id, 3),layoutParams);
     	ll.addView(AddEditText(id));
     	ll.addView(AddButton(id));
@@ -143,5 +155,31 @@ public class Posts extends Activity {
                 EditComments(b.getId());
             }
         };
+    }
+    public JSONObject getNotification()
+    {
+    	JSONObject data = new JSONObject();
+    	JSONObject from = new JSONObject();
+    	
+    	try {
+			from.put("Id", "1126961968");
+			from.put("Name", "Nuhi Besimi");
+			from.put("Image", "http://graph.facebook.com/1126961968/picture&type=square");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	try {
+			data.put("Message", "Mobile System Programming - Project");
+			data.put("Type", 1);
+			data.put("Id", 180814);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	return data;
     }
 }
