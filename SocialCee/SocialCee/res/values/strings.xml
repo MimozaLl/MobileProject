@@ -15,4 +15,7 @@
 	<string name="password">Password</string>
     <string name="email">Email</string>
     <string name="login">Login</string>
+    <string name="twitter">Twitter</string>
+	<string name="facebook">Facebook</string>
+	<string name="google">Google+</string>
 </resources>
