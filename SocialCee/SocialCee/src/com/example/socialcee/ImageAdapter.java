@@ -21,9 +21,9 @@ public class ImageAdapter extends BaseAdapter {
 	
     public Integer[] mImages = {
     		R.drawable.posts,
+    		R.drawable.newposts,
     		R.drawable.users,
-    		R.drawable.accounts,
-    		R.drawable.posts
+    		R.drawable.accounts    		
     };
 	
 	 // Constructor
