@@ -12,5 +12,8 @@
     <string name="title_activity_new_post">NewPost</string>
     <string name="title_activity_posts">Posts</string>
     <string name="image">Thumbnail</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google+</string>
 
 </resources>
