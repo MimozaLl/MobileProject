@@ -45,13 +45,15 @@ public class GridViewActivity extends Activity {
     			intent = new Intent(getApplicationContext(), Posts.class);
     			break;
     		case 1:
-    		    intent = new Intent(getApplicationContext(), Users.class);
+    			intent = new Intent(getApplicationContext(), NewPost.class); 
     		    break;
     		case 2:
-    			intent = new Intent(getApplicationContext(), Accounts.class);
+    			intent = new Intent(getApplicationContext(), Users.class);
+    			
     			break;
     		case 3:
-    			intent = new Intent(getApplicationContext(), NewPost.class); 
+    			intent = new Intent(getApplicationContext(), Accounts.class);
+    			
     			break;
     		}
     		

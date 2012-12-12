@@ -12,5 +12,7 @@
     <string name="title_activity_new_post">NewPost</string>
     <string name="title_activity_posts">Posts</string>
     <string name="image">Thumbnail</string>
-
+	<string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
 </resources>

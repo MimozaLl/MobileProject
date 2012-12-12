@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
       
         /*Button to connect to GridView Activity
        * First activity after Log in*/        
-       Button internal_data =(Button)findViewById(R.id.button);
+       Button internal_data =(Button)findViewById(R.id.btnLogin);
         // New intent when Location clicked
         internal_data.setOnClickListener( new Button.OnClickListener()
    	 {
