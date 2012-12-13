@@ -28,6 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Posts extends Activity {
+	private DrawableManager imageDownload;
 
 	//JSONObject for Notification(EventSubscription)
 	public JSONObject json = new JSONObject();
@@ -38,6 +39,8 @@ public class Posts extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
+        imageDownload = new DrawableManager();
+        
         LinearLayout content = new LinearLayout(this);
         content = (LinearLayout) findViewById(R.id.content); 
         String Message = "";
@@ -348,4 +351,5 @@ public class Posts extends Activity {
     	       // }
     	        return in;     
     	    }
+   
 }
