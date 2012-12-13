@@ -3,7 +3,7 @@
     <string name="app_name">SocialCee</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">SocialCee</string>
     <string name="title_activity_grid_view">GridView</string>
     <string name="title_activity_selected_grid">SelectedGrid</string>
     <string name="title_activity_post">Post</string>
