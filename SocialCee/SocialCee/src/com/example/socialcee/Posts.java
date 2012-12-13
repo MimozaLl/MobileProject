@@ -54,10 +54,10 @@ public class Posts extends Activity {
         String [] images = new String[99];
         String [] names = new String[99];
         comments[0] = "Welcome to Maks Norway";
-        images[0] = "http://graph.facebook.com/1126961968/picture&type=square";
+        images[0] = "http://thecontentwrangler.com/wp-content/uploads/2011/08/User.png";
         names[0] = "Nuhi Besimi";
         comments[1] = "It is a pleasure :D";
-        images[1] = "http://graph.facebook.com/100000359694707/picture&type=square";
+        images[1] = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/157511_1791132097_1364977487_q.jpg";
         names[1] = "Arlinda Rushiti";
         json = getNotification();
 		try {
@@ -90,7 +90,7 @@ public class Posts extends Activity {
     	ll.addView(AddHeaderBlock()); 
     	ll.addView(AddLine(), new ViewGroup.LayoutParams( ViewGroup.LayoutParams.FILL_PARENT, 2));
     	ll.addView(AddText(PostMessage, 20,0,0));
-    	ll.addView(AddCommentBlock(id, ncomments, comments, names),layoutParams);
+    	ll.addView(AddCommentBlock(id, ncomments, comments, names, images),layoutParams);
     	ll.addView(AddEditText(id));
     	ll.addView(AddButton(id));
     	
@@ -132,7 +132,7 @@ public class Posts extends Activity {
     	
     	return t;
     }
-    public LinearLayout AddCommentBlock(int id, int nc, String [] commentsi, String [] names)
+    public LinearLayout AddCommentBlock(int id, int nc, String [] commentsi, String [] names, String [] images)
     {
     	int i;
     	LinearLayout comments = new LinearLayout(this);
@@ -143,12 +143,12 @@ public class Posts extends Activity {
     	comments.setTag(id);
     	for(i=0; i<nc; i++)
     	{
-    		comments.addView(AddComment(commentsi[i], names[i]));
+    		comments.addView(AddComment(commentsi[i], names[i], images[i]));
     	}
     	
     	return comments;
     }
-    public RelativeLayout AddComment(String commenti, String from)
+    public RelativeLayout AddComment(String commenti, String from, String image)
     {
     	RelativeLayout comment = new RelativeLayout(this);
     	ImageView iv = new ImageView(this);
@@ -156,7 +156,7 @@ public class Posts extends Activity {
     	iv.setLayoutParams(new LinearLayout.LayoutParams(70, 70));
     	
     	
-    	imageDownload.fetchDrawableOnThread("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/157511_1791132097_1364977487_q.jpg", iv);
+    	imageDownload.fetchDrawableOnThread(image, iv);
     	comment.addView(iv);
     	//comment.addView(AddImage(R.drawable.internet_connection, 70, 70, 0));
     	comment.addView(AddText(from,15,80,0));
@@ -198,7 +198,7 @@ public class Posts extends Activity {
     		//String postJson = postjson.toString();
     		Request rp= new Request(postjson);
 	        rp.execute(url);
-    		comments.addView(AddComment(text, "Maks Norway"));
+    		comments.addView(AddComment(text, "Maks Norway", "http://2.bp.blogspot.com/-ammFqiR7bqw/TrLt6gM8HqI/AAAAAAAAAng/wlRXzlL36tE/s1600/No+internet+connection.jpg"));
     		et.setText("");
     	}
     }
