@@ -175,7 +175,7 @@ public class Posts extends Activity {
     public Button AddButton(int id)
     {
     	Button b = new Button(this);
-        b.setText("Replay");
+        b.setText("Reply");
         b.setHeight(10);
         b.setWidth(130);
         b.setId(id);
