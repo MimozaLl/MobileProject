@@ -3,6 +3,21 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
+            <RelativeLayout
+       	android:id="@+id/header"
+    	android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#FF9D1E"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+           <!-- Logo Start-->
+        	<ImageView android:src="@drawable/logo"
+           		 android:layout_width="wrap_content"
+           		 android:layout_height="wrap_content"/>
+        	<!-- Logo Ends -->       
+  	    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView1"

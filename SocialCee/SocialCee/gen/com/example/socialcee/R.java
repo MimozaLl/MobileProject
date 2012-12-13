@@ -36,8 +36,8 @@ public final class R {
         public static final int btnLogin=0x7f070004;
         public static final int content=0x7f070005;
         public static final int desc=0x7f07000a;
-        public static final int grid_view=0x7f070000;
-        public static final int header=0x7f070001;
+        public static final int grid_view=0x7f070001;
+        public static final int header=0x7f070000;
         public static final int icon=0x7f070008;
         public static final int list=0x7f07000c;
         public static final int mainImage=0x7f070006;
