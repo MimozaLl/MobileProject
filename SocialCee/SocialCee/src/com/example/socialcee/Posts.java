@@ -28,7 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Posts extends Activity {
-	private DrawableManager imageDownload;
+	private DrawableManager imageDownload = new DrawableManager();
 
 	//JSONObject for Notification(EventSubscription)
 	public JSONObject json = new JSONObject();
@@ -40,6 +40,10 @@ public class Posts extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
         imageDownload = new DrawableManager();
+        
+        /*ImageView imView = (ImageView) findViewById(R.id.imageret);
+		imageDownload.fetchDrawableOnThread("http://www.allindiaflorist.com/imgs/arrangemen4.jpg", imView);
+*/
         
         LinearLayout content = new LinearLayout(this);
         content = (LinearLayout) findViewById(R.id.content); 
@@ -149,9 +153,12 @@ public class Posts extends Activity {
     	RelativeLayout comment = new RelativeLayout(this);
     	ImageView iv = new ImageView(this);
     	//iv.setImageBitmap(DownloadImage("http://graph.facebook.com/1126961968/picture&type=square"));
-    	//iv.setLayoutParams(new LinearLayout.LayoutParams(70, 70));
-    	//comment.addView(iv);
-    	comment.addView(AddImage(R.drawable.internet_connection, 70, 70, 0));
+    	iv.setLayoutParams(new LinearLayout.LayoutParams(70, 70));
+    	
+    	
+    	imageDownload.fetchDrawableOnThread("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/157511_1791132097_1364977487_q.jpg", iv);
+    	comment.addView(iv);
+    	//comment.addView(AddImage(R.drawable.internet_connection, 70, 70, 0));
     	comment.addView(AddText(from,15,80,0));
     	comment.addView(AddText(commenti,15,80,30));
     	
