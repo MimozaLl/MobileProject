@@ -27,6 +27,7 @@ public class DrawableManager {
         if (drawableMap.containsKey(urlString)) {
             return drawableMap.get(urlString);
         }
+        
 
         Log.d(this.getClass().getSimpleName(), "image url:" + urlString);
         try {
