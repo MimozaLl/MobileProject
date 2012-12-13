@@ -1,10 +1,12 @@
 package com.example.socialcee;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -29,7 +31,6 @@ public class Request extends AsyncTask<String, Void, String> {
 		// TODO Auto-generated method stub
 		String response=null;
 		for (String url : urls)
-			try {
 				{
 				
 					 DefaultHttpClient httpclient = new DefaultHttpClient();
@@ -47,16 +48,28 @@ public class Request extends AsyncTask<String, Void, String> {
 						e.printStackTrace();
 					}
 				     
-				    httpclient.execute(httppost);
+				    try {
+						httpclient.execute(httppost);
+					} catch (ClientProtocolException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				     
 				    ResponseHandler<String> responseHandler = new BasicResponseHandler();
-				    response = httpclient.execute(httppost, responseHandler);
+				    try {
+						response = httpclient.execute(httppost, responseHandler);
+					} catch (ClientProtocolException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				     
 }
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		
 		return response;
 	}
