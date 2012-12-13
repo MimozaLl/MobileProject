@@ -32,7 +32,7 @@ public class Posts extends Activity {
 	//JSONObject for Notification(EventSubscription)
 	public JSONObject json = new JSONObject();
 	public String url = "https://api.socialcee.com/services/CommentHandler.ashx";
-	public JSONObject postjson = new JSONObject();
+	public String postjson = new String();
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -183,8 +183,11 @@ public class Posts extends Activity {
     	text = et.getText().toString();
     	if (!text.isEmpty())
     	{
-    		//COMMENT A POST
-    		postjson = BuildCommentJson(text);
+    		//COMMENT A POST   	        
+    		postjson = BuildCommentJson(text).toString();
+    		//String postJson = postjson.toString();
+    		Request rp= new Request(postjson);
+	        rp.execute(url);
     		comments.addView(AddComment(text, "Maks Norway"));
     		et.setText("");
     	}

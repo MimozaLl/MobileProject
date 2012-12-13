@@ -20,17 +20,10 @@ public class requestPath extends AsyncTask<String, Void, String>{
 			
 	private String jsobject;
 	
-	/** Call in the main
-	 *  JsonObject jo = new  JsonObject();
-        jsObject = jo.createJsonObject().toString();       
-        
-        requestPath rp= new requestPath(jsObject);
-        rp.execute(url);
-	 */
-	
 	public requestPath(String Object) {
-		// TODO Auto-generated constructor stub
+		super();
 		jsobject=Object;
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
