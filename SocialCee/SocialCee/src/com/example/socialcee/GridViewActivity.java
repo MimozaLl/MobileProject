@@ -14,7 +14,8 @@ public class GridViewActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grid_view);
+       //setContentView(R.layout.activity_grid_view);
+        setContentView(R.layout.hgrid);
         
         /* Never ever name the actity GridView
          */

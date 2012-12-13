@@ -59,9 +59,10 @@ public final class R {
         public static final int activity_selected_grid=0x7f030005;
         public static final int activity_users=0x7f030006;
         public static final int customview=0x7f030007;
-        public static final int list=0x7f030008;
-        public static final int list_item=0x7f030009;
-        public static final int main=0x7f03000a;
+        public static final int hgrid=0x7f030008;
+        public static final int list=0x7f030009;
+        public static final int list_item=0x7f03000a;
+        public static final int main=0x7f03000b;
     }
     public static final class menu {
         public static final int activity_accounts=0x7f060000;
