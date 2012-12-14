@@ -26,5 +26,194 @@
         android:layout_centerVertical="true"
         android:text="New Post"
         tools:context=".NewPost" />
+      <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="@drawable/header" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="39dp"
+        android:text="Write A New Post"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="78dp"
+        android:src="@drawable/add_image" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@+id/imageView1"
+        android:text="Add Photo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="27sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_marginLeft="36dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:src="@drawable/add_link" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/imageView2"
+        android:text="Add Link"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="27sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="109dp"
+        android:text="Select Accounts"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="27sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="29dp"
+        android:text="Publish Post"
+        android:textSize="30sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/imageView2"
+        android:text="Select All"
+        android:textSize="27sp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/imageView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="Title" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="370dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="Description..."
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_below="@+id/textView3"
+        android:text="Upload" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/editText3"
+        android:layout_alignLeft="@+id/imageView1" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/editText3"
+        android:layout_toLeftOf="@+id/textView2"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:text="Load" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toLeftOf="@+id/button4"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/button5"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button4"
+        android:layout_below="@+id/imageView2"
+        android:layout_toRightOf="@+id/editText4"
+        android:text="Back" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignRight="@+id/checkBox1"
+        android:layout_toRightOf="@+id/imageView3"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="370dp"
+        android:layout_height="180dp"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="Write your message here..."
+        android:inputType="textMultiLine"
+        android:textSize="24sp" />
+    
 
 </RelativeLayout>
